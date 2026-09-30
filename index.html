@@ -53,7 +53,7 @@
         <a href="https://www.instagram.com/adwayadvertisement/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.facebook.com/adwayadvertisement/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:digitaladway@gmail.com?subject=Service%20Enquiry%20-%20Adway%20Digital" target="_blank" rel="noopener noreferrer" aria-label="Email digitaladway@gmail.com"><i class="fa-brands fa-google"></i></a>
+        <a href="javascript:void(0)" onclick="openEmailModal()" aria-label="Email digitaladway@gmail.com"><i class="fa-brands fa-google"></i></a>
       </div>
     </div>
   </div>
@@ -477,7 +477,7 @@
           <i class="fa-solid fa-envelope" style="font-size: 28px; color: #ea4335; margin-bottom: 12px;"></i>
           <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">For More Info Connect</h3>
           <p style="font-size: 15px; font-weight: 800; color: var(--text-primary); margin-bottom: 14px; word-break: break-all;">digitaladway@gmail.com</p>
-          <a href="mailto:digitaladway@gmail.com?subject=Service%20Enquiry%20-%20Adway%20Digital" target="_blank" rel="noopener noreferrer" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px; border-color: #fca5a5; color: #dc2626;">
+          <a href="javascript:void(0)" onclick="openEmailModal()" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px; border-color: #fca5a5; color: #dc2626;">
             <i class="fa-solid fa-envelope"></i> Send Email
           </a>
         </div>
@@ -522,7 +522,7 @@
         <a href="https://www.instagram.com/adwayadvertisement/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.facebook.com/adwayadvertisement/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:digitaladway@gmail.com?subject=Service%20Enquiry%20-%20Adway%20Digital" target="_blank" rel="noopener noreferrer" aria-label="Email digitaladway@gmail.com"><i class="fa-brands fa-google"></i></a>
+        <a href="javascript:void(0)" onclick="openEmailModal()" aria-label="Email digitaladway@gmail.com"><i class="fa-brands fa-google"></i></a>
       </div>
 
       <p style="font-size: 12px; color: #64748b;">&copy; 2026 Adway Digital (adwaydigital.org). All Rights Reserved.</p>
@@ -530,5 +530,70 @@
   </footer>
 
   <script src="app.js"></script>
+
+  <!-- ==========================================================================
+     3D EMAIL ENQUIRY MODAL (Send Email to digitaladway@gmail.com)
+     ========================================================================== -->
+  <div id="email-modal-3d" class="modal-overlay-3d" style="display: none;">
+    <div class="modal-card-3d">
+      <button class="modal-close-btn" onclick="closeEmailModal()">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div class="service-icon-box" style="margin: 0 auto 12px; background: rgba(234, 67, 53, 0.1); color: #ea4335;">
+          <i class="fa-solid fa-envelope" style="font-size: 26px;"></i>
+        </div>
+        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">Email Direct Enquiry</h3>
+        <p style="font-size: 13.5px; color: var(--text-muted);">Send your enquiry directly to <strong>digitaladway@gmail.com</strong></p>
+      </div>
+
+      <form id="email-enquiry-modal-form" onsubmit="sendDirectEmailEnquiry(event)">
+        <div class="form-group-3d">
+          <label for="email-enq-name">Your Full Name</label>
+          <input type="text" id="email-enq-name" placeholder="Enter your full name" class="input-3d">
+        </div>
+
+        <div class="form-group-3d">
+          <label for="email-enq-mobile">Mobile Number <span style="color: #ef4444; font-weight: 800;">* (Mandatory)</span></label>
+          <input type="tel" id="email-enq-mobile" required placeholder="Enter 10-digit mobile number" class="input-3d">
+        </div>
+
+        <div class="form-group-3d">
+          <label for="email-enq-email">Your Email Address <span style="color: #64748b; font-size: 11px;">(Optional)</span></label>
+          <input type="email" id="email-enq-email" placeholder="name@example.com (optional)" class="input-3d">
+        </div>
+
+        <div class="form-group-3d">
+          <label for="email-enq-service">Service / Information Enquired <span style="color: #ef4444;">*</span></label>
+          <select id="email-enq-service" class="input-3d" style="width: 100%;">
+            <option value="General Information Enquiry">General Information Enquiry</option>
+            <option value="AI Videos">AI Videos</option>
+            <option value="AI Presentation">AI Presentation</option>
+            <option value="Bulk SMS">Bulk SMS</option>
+            <option value="WhatsApp Message">WhatsApp Message</option>
+            <option value="Voice SMS">Voice SMS</option>
+            <option value="Facebook, Instagram & YouTube Marketing">Facebook, Instagram & YouTube Marketing</option>
+            <option value="LED Van Ads">LED Van Ads</option>
+            <option value="Hoarding">Hoarding / Billboards</option>
+            <option value="Animation Ad">Animation Ad (2D/3D)</option>
+            <option value="Jingles">Jingles & Audio Branding</option>
+            <option value="Wedding & Birthday Invitation">Wedding & Birthday Invitations</option>
+            <option value="Video Editing">Video Editing</option>
+            <option value="Android / iOS App & 3D Web Development">Android/iOS App & Web Development</option>
+          </select>
+        </div>
+
+        <div class="form-group-3d">
+          <label for="email-enq-message">Enquiry Details / Message</label>
+          <textarea id="email-enq-message" rows="3" placeholder="Tell us what you are looking for..." class="input-3d" style="resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-email-submit-3d" style="width: 100%; margin-top: 10px;">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>SEND MAIL TO DIGITALADWAY@GMAIL.COM</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -438,8 +438,8 @@ function renderServices(filterCategory = "all") {
 // Enquire strictly for ONE specific product/service via WhatsApp
 function enquireSpecificService(serviceTitle) {
   const message = `Hello Adway Digital! 👋\n\nI am interested in inquiring about: *${serviceTitle}*.\nPlease share details and options for this service. Thank you!`;
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
+  const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+  openWhatsAppSafe(url);
 }
 
 // Setup Tab Filter Event Listeners
@@ -505,9 +505,9 @@ function sendDirectWhatsAppEnquiry(e) {
 
   const message = `Hello Adway Digital! 👋\n\n*NEW SERVICE ENQUIRY*\n• *Name*: ${nameVal}\n• *Service Requested*: ${selectedService}\n• *Requirements*: ${userMsg}\n\nPlease share details and options for this service. Thank you!`;
 
-  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
   
-  window.open(waUrl, '_blank');
+  openWhatsAppSafe(waUrl);
 }
 
 // Mobile Navigation Toggle
@@ -566,4 +566,87 @@ function setupSmoothScroll() {
       }
     });
   });
+}
+
+function openWhatsAppSafe(url) {
+  try {
+    const win = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+      window.location.href = url;
+    }
+  } catch (err) {
+    window.location.href = url;
+  }
+}
+
+
+// Email Direct Enquiry Modal Logic
+function openEmailModal(serviceTitle) {
+  const modal = document.getElementById("email-modal-3d");
+  if (modal) {
+    modal.style.display = "flex";
+    if (serviceTitle) {
+      const selectElem = document.getElementById("email-enq-service");
+      if (selectElem) selectElem.value = serviceTitle;
+    }
+  }
+}
+
+function closeEmailModal() {
+  const modal = document.getElementById("email-modal-3d");
+  if (modal) modal.style.display = "none";
+}
+
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("email-modal-3d");
+  if (e && e.target === modal) {
+    closeEmailModal();
+  }
+});
+
+function sendDirectEmailEnquiry(e) {
+  if (e && e.preventDefault) e.preventDefault();
+
+  const nameElem = document.getElementById("email-enq-name");
+  const mobileElem = document.getElementById("email-enq-mobile");
+  const emailElem = document.getElementById("email-enq-email");
+  const selectElem = document.getElementById("email-enq-service");
+  const msgElem = document.getElementById("email-enq-message");
+
+  const nameVal = nameElem && nameElem.value.trim() ? nameElem.value.trim() : "Valued Client";
+  const mobileVal = mobileElem && mobileElem.value.trim() ? mobileElem.value.trim() : "";
+  const emailVal = emailElem && emailElem.value.trim() ? emailElem.value.trim() : "Not Provided";
+  const selectedService = selectElem && selectElem.value ? selectElem.value : "General Information Enquiry";
+  const userMsg = msgElem && msgElem.value.trim() ? msgElem.value.trim() : "Please share details and campaign options.";
+
+  if (!mobileVal) {
+    alert("Mobile Number is mandatory. Please enter your mobile number.");
+    if (mobileElem) mobileElem.focus();
+    return;
+  }
+
+  const subject = `Service Enquiry: ${selectedService} - ${nameVal}`;
+  const body = `Hello Adway Digital team,
+
+I would like to enquire about your services.
+
+ENQUIRY DETAILS:
+----------------------------------------
+• Client Name: ${nameVal}
+• Mobile Number (Mandatory): ${mobileVal}
+• Email Address: ${emailVal}
+• Service Enquired: ${selectedService}
+• Requirements Message: ${userMsg}
+----------------------------------------
+
+Please reach back to me at ${mobileVal}.
+Thank you!`;
+
+  const mailtoUrl = `mailto:digitaladway@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.location.href = mailtoUrl;
+
+  setTimeout(() => {
+    closeEmailModal();
+  }, 800);
 }
