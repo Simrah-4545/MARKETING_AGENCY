@@ -1190,3 +1190,28 @@ ul {
   transform: translateY(-2px);
   box-shadow: 0 12px 26px rgba(234, 67, 53, 0.5);
 }
+
+
+/* Form Input Interactivity & Focus Fixes */
+.enquiry-3d-card {
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+.input-wrapper-3d {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.form-control-3d {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto !important;
+}
+
+.input-icon-3d {
+  pointer-events: none !important;
+  z-index: 15;
+}

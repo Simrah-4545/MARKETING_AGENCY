@@ -294,7 +294,7 @@ function initThreeJSBackground() {
 
 // Advanced 3D Mouse Movement Card Tilt & Light Glare Effect
 function setup3DTiltEffect() {
-  const cards = document.querySelectorAll('.bento-card, .metric-card, .marquee-card');
+  const cards = document.querySelectorAll('.bento-card:not(.enquiry-3d-card), .metric-card, .marquee-card');
   cards.forEach(card => {
     // Add glare layer if not present
     if (!card.querySelector('.card-glare-3d')) {
@@ -579,39 +579,15 @@ function openWhatsAppSafe(url) {
   }
 }
 
-
-// Email Direct Enquiry Modal Logic
-function openEmailModal(serviceTitle) {
-  const modal = document.getElementById("email-modal-3d");
-  if (modal) {
-    modal.style.display = "flex";
-    if (serviceTitle) {
-      const selectElem = document.getElementById("email-enq-service");
-      if (selectElem) selectElem.value = serviceTitle;
-    }
-  }
-}
-
-function closeEmailModal() {
-  const modal = document.getElementById("email-modal-3d");
-  if (modal) modal.style.display = "none";
-}
-
-window.addEventListener("click", (e) => {
-  const modal = document.getElementById("email-modal-3d");
-  if (e && e.target === modal) {
-    closeEmailModal();
-  }
-});
-
-function sendDirectEmailEnquiry(e) {
+// Adway Digital Direct Email Enquiry Handler (digitaladway@gmail.com)
+function sendDirectAdwayEmailEnquiry(e) {
   if (e && e.preventDefault) e.preventDefault();
 
-  const nameElem = document.getElementById("email-enq-name");
-  const mobileElem = document.getElementById("email-enq-mobile");
-  const emailElem = document.getElementById("email-enq-email");
-  const selectElem = document.getElementById("email-enq-service");
-  const msgElem = document.getElementById("email-enq-message");
+  const nameElem = document.getElementById("enq-name");
+  const mobileElem = document.getElementById("enq-mobile");
+  const emailElem = document.getElementById("enq-email");
+  const selectElem = document.getElementById("enq-service");
+  const msgElem = document.getElementById("enq-message");
 
   const nameVal = nameElem && nameElem.value.trim() ? nameElem.value.trim() : "Valued Client";
   const mobileVal = mobileElem && mobileElem.value.trim() ? mobileElem.value.trim() : "";
@@ -619,34 +595,49 @@ function sendDirectEmailEnquiry(e) {
   const selectedService = selectElem && selectElem.value ? selectElem.value : "General Information Enquiry";
   const userMsg = msgElem && msgElem.value.trim() ? msgElem.value.trim() : "Please share details and campaign options.";
 
+  if (!nameVal || nameVal === "Valued Client") {
+    alert("Full Name is mandatory. Please enter your full name.");
+    if (nameElem) nameElem.focus();
+    return;
+  }
   if (!mobileVal) {
     alert("Mobile Number is mandatory. Please enter your mobile number.");
     if (mobileElem) mobileElem.focus();
     return;
   }
+  if (!userMsg || userMsg === "Please share details and campaign options.") {
+    alert("Enquiry Message is mandatory. Please enter your enquiry details.");
+    if (msgElem) msgElem.focus();
+    return;
+  }
 
-  const subject = `Service Enquiry: ${selectedService} - ${nameVal}`;
-  const body = `Hello Adway Digital team,
+  const subject = `Adway Digital Service Enquiry: ${selectedService} - ${nameVal}`;
+  const body = `Hello Adway Digital Team,\n\nA new enquiry has been submitted on adwaydigital.org:\n\nCLIENT ENQUIRY DETAILS:\n----------------------------------------\n• Full Name: ${nameVal}\n• Mobile Number (Mandatory): ${mobileVal}\n• Email Address: ${emailVal}\n• Service Enquired: ${selectedService}\n• Message / Requirements: ${userMsg}\n----------------------------------------\n\nPlease reach out to me at ${mobileVal} or ${emailVal}.\n\nThank you!`;
 
-I would like to enquire about your services.
+  // 1. Send via FormSubmit API to digitaladway@gmail.com inbox
+  try {
+    fetch("https://formsubmit.co/ajax/digitaladway@gmail.com", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        _subject: subject,
+        name: nameVal,
+        mobile: mobileVal,
+        email: emailVal,
+        service: selectedService,
+        message: userMsg
+      })
+    }).catch(err => console.log("FormSubmit API background post:", err));
+  } catch (err) {
+    console.log(err);
+  }
 
-ENQUIRY DETAILS:
-----------------------------------------
-• Client Name: ${nameVal}
-• Mobile Number (Mandatory): ${mobileVal}
-• Email Address: ${emailVal}
-• Service Enquired: ${selectedService}
-• Requirements Message: ${userMsg}
-----------------------------------------
-
-Please reach back to me at ${mobileVal}.
-Thank you!`;
-
+  // 2. Open Mailto fallback
   const mailtoUrl = `mailto:digitaladway@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
   window.location.href = mailtoUrl;
 
-  setTimeout(() => {
-    closeEmailModal();
-  }, 800);
+  alert("Thank you! Your enquiry for " + selectedService + " is being sent directly to digitaladway@gmail.com.");
 }

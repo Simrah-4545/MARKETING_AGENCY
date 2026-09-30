@@ -343,60 +343,67 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-     3D ULTRA-VISIBLE SERVICE ENQUIRY HUB
+    <!-- ==========================================================================
+     ADWAY DIGITAL CONTACT & ENQUIRY HUB - Direct Email to digitaladway@gmail.com
      ========================================================================== -->
   <section class="section enquiry-3d-section" id="enquiry">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag"><i class="fa-solid fa-paper-plane" style="color:#25d366;"></i> DIRECT 3D ENQUIRY HUB</span>
-        <h2 class="section-title">GET A FREE CUSTOM QUOTE</h2>
-        <p class="section-subtitle">Select your service below and submit to connect directly with our expert team on WhatsApp!</p>
+        <span class="section-tag"><i class="fa-solid fa-envelope" style="color:#ea4335;"></i> CONTACT US & ENQUIRY</span>
+        <h2 class="section-title">GET IN TOUCH & REQUEST A QUOTE</h2>
+        <p class="section-subtitle">Fill in your enquiry details below. All inquiries are delivered directly to <strong>digitaladway@gmail.com</strong>.</p>
       </div>
 
-      <div class="enquiry-3d-card bento-card">
-        <div class="enquiry-card-badge">
-          <i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> Instant 5-Min WhatsApp Response
+      <div class="enquiry-3d-card bento-card" style="max-width: 760px; margin: 0 auto; padding: 32px 28px;">
+        <div class="enquiry-card-badge" style="background: rgba(234, 67, 53, 0.1); color: #ea4335; margin-bottom: 24px;">
+          <i class="fa-solid fa-paper-plane" style="color: #ea4335;"></i> Direct Email: <strong>digitaladway@gmail.com</strong>
         </div>
 
-        <form id="general-enquiry-form">
-          <!-- Name Field -->
-          <div class="form-group-3d">
-            <label class="form-label-3d" for="enq-name">
-              <i class="fa-solid fa-user icon-3d-label"></i> Your Name / Business Name
-            </label>
-            <div class="input-wrapper-3d">
-              <i class="fa-solid fa-user-pen input-icon-3d"></i>
-              <input type="text" id="enq-name" class="form-control-3d" placeholder="e.g. Rahul Sharma / Business Brand" required>
+        <form id="general-enquiry-form" onsubmit="sendDirectAdwayEmailEnquiry(event)">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px;">
+            <!-- Name Field (Mandatory) -->
+            <div class="form-group-3d">
+              <label class="form-label-3d" for="enq-name">
+                <i class="fa-solid fa-user icon-3d-label"></i> Full Name <span style="color:#ef4444; font-weight: 800;">* (Mandatory)</span>
+              </label>
+              <div class="input-wrapper-3d">
+                <i class="fa-solid fa-user-pen input-icon-3d"></i>
+                <input type="text" id="enq-name" class="form-control-3d" placeholder="Enter your full name" required>
+              </div>
+            </div>
+
+            <!-- Mobile Field (Mandatory) -->
+            <div class="form-group-3d">
+              <label class="form-label-3d" for="enq-mobile">
+                <i class="fa-solid fa-phone icon-3d-label" style="color:#4353ff;"></i> Mobile Number <span style="color:#ef4444; font-weight: 800;">* (Mandatory)</span>
+              </label>
+              <div class="input-wrapper-3d">
+                <i class="fa-solid fa-mobile-screen input-icon-3d"></i>
+                <input type="tel" id="enq-mobile" class="form-control-3d" placeholder="Enter 10-digit mobile number" required>
+              </div>
             </div>
           </div>
 
-          <!-- Service Selection Chips & Dropdown -->
-          <div class="form-group-3d">
-            <label class="form-label-3d" for="enq-service">
-              <i class="fa-solid fa-layer-group icon-3d-label"></i> Select Service Needed (Tap to Choose)
+          <!-- Email Field (Optional) -->
+          <div class="form-group-3d" style="margin-top: 14px;">
+            <label class="form-label-3d" for="enq-email">
+              <i class="fa-solid fa-envelope icon-3d-label" style="color:#ea4335;"></i> Your Email Address <span style="color:#64748b; font-size: 11.5px;">(Optional)</span>
             </label>
-            
-            <!-- 3D Interactive Service Chips -->
-            <div class="service-chips-grid" id="service-chips">
-              <button type="button" class="chip-3d active" data-value="AI Videos"><i class="fa-solid fa-robot"></i> AI Videos</button>
-              <button type="button" class="chip-3d" data-value="AI Presentation"><i class="fa-solid fa-display"></i> AI Presentation</button>
-              <button type="button" class="chip-3d" data-value="Bulk SMS"><i class="fa-solid fa-comment-dots"></i> Bulk SMS</button>
-              <button type="button" class="chip-3d" data-value="WhatsApp Message"><i class="fa-brands fa-whatsapp" style="color:#25d366;"></i> WhatsApp Message</button>
-              <button type="button" class="chip-3d" data-value="Voice SMS"><i class="fa-solid fa-phone-volume"></i> Voice SMS</button>
-              <button type="button" class="chip-3d" data-value="Facebook, Instagram & YouTube Marketing"><i class="fa-solid fa-bullhorn"></i> Social Ads</button>
-              <button type="button" class="chip-3d" data-value="LED Van Ads"><i class="fa-solid fa-truck-front"></i> LED Van Ads</button>
-              <button type="button" class="chip-3d" data-value="Hoarding"><i class="fa-solid fa-square-poll-vertical"></i> Hoarding</button>
-              <button type="button" class="chip-3d" data-value="Animation Ad"><i class="fa-solid fa-wand-magic-sparkles"></i> Animation Ad</button>
-              <button type="button" class="chip-3d" data-value="Jingles"><i class="fa-solid fa-music"></i> Jingles</button>
-              <button type="button" class="chip-3d" data-value="Wedding & Birthday Invitation"><i class="fa-solid fa-heart"></i> Invitations</button>
-              <button type="button" class="chip-3d" data-value="Video Editing"><i class="fa-solid fa-scissors"></i> Video Editing</button>
-              <button type="button" class="chip-3d" data-value="Android / iOS App & 3D Web Development"><i class="fa-solid fa-mobile-screen-button"></i> App & Web Dev</button>
+            <div class="input-wrapper-3d">
+              <i class="fa-solid fa-at input-icon-3d"></i>
+              <input type="email" id="enq-email" class="form-control-3d" placeholder="name@example.com (optional)">
             </div>
+          </div>
 
-            <div class="input-wrapper-3d" style="margin-top: 12px;">
+          <!-- Service Selection Dropdown -->
+          <div class="form-group-3d" style="margin-top: 14px;">
+            <label class="form-label-3d" for="enq-service">
+              <i class="fa-solid fa-layer-group icon-3d-label"></i> Service Enquired / Information Needed <span style="color:#ef4444;">*</span>
+            </label>
+            <div class="input-wrapper-3d">
               <i class="fa-solid fa-list-check input-icon-3d"></i>
               <select id="enq-service" class="form-control-3d select-3d">
+                <option value="General Information Enquiry">General Information Enquiry</option>
                 <option value="AI Videos">AI Videos</option>
                 <option value="AI Presentation">AI Presentation</option>
                 <option value="Bulk SMS">Bulk SMS</option>
@@ -404,40 +411,47 @@
                 <option value="Voice SMS">Voice SMS</option>
                 <option value="Facebook, Instagram & YouTube Marketing">Facebook, Instagram & YouTube Marketing</option>
                 <option value="LED Van Ads">LED Van Ads</option>
-                <option value="Hoarding">Hoarding</option>
-                <option value="Animation Ad">Animation Ad</option>
-                <option value="Jingles">Jingles</option>
-                <option value="Wedding & Birthday Invitation">Wedding & Birthday Invitation</option>
+                <option value="Hoarding">Hoarding / Billboards</option>
+                <option value="Animation Ad">Animation Ad (2D/3D)</option>
+                <option value="Jingles">Jingles & Audio Branding</option>
+                <option value="Wedding & Birthday Invitation">Wedding & Birthday Invitations</option>
                 <option value="Video Editing">Video Editing</option>
-                <option value="Android / iOS App & 3D Web Development">Android / iOS App & 3D Web Development</option>
+                <option value="Android / iOS App & 3D Web Development">Android/iOS App & Web Development</option>
               </select>
             </div>
           </div>
 
-          <!-- Requirements Textarea -->
-          <div class="form-group-3d">
+          <!-- Requirements Message (Mandatory) -->
+          <div class="form-group-3d" style="margin-top: 14px;">
             <label class="form-label-3d" for="enq-message">
-              <i class="fa-solid fa-pen-to-square icon-3d-label"></i> Brief Requirements (Optional)
+              <i class="fa-solid fa-pen-to-square icon-3d-label"></i> Enquiry Message / Requirements <span style="color:#ef4444; font-weight: 800;">* (Mandatory)</span>
             </label>
             <div class="input-wrapper-3d">
               <i class="fa-solid fa-message input-icon-3d" style="top: 18px;"></i>
-              <textarea id="enq-message" class="form-control-3d" rows="3" placeholder="Describe your target audience or campaign goals..."></textarea>
+              <textarea id="enq-message" class="form-control-3d" rows="3" placeholder="Describe your project, budget, or question..." required></textarea>
             </div>
           </div>
 
-          <!-- Submit Button -->
-          <button type="submit" onclick="sendDirectWhatsAppEnquiry(event)" class="btn-wa-submit-3d">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
-            <span>SEND DIRECT ENQUIRY ON WHATSAPP (+91-9760094558)</span>
-            <i class="fa-solid fa-arrow-right icon-arrow-3d"></i>
-          </button>
+          <!-- Dual Submission Options: Email to digitaladway@gmail.com or WhatsApp -->
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 22px;">
+            <button type="submit" class="btn-email-submit-3d" style="width: 100%; font-size: 15px; padding: 16px;">
+              <i class="fa-solid fa-paper-plane text-xl"></i>
+              <span>SEND ENQUIRY TO DIGITALADWAY@GMAIL.COM</span>
+              <i class="fa-solid fa-arrow-right icon-arrow-3d"></i>
+            </button>
+
+            <button type="button" onclick="sendDirectWhatsAppEnquiry(event)" class="btn-wa-submit-3d" style="width: 100%; font-size: 14px; padding: 14px; background: var(--wa-green) !important;">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>INSTANT CONNECT ON WHATSAPP (+91-9760094558)</span>
+            </button>
+          </div>
         </form>
 
         <!-- Trust Features Bar -->
-        <div class="enquiry-trust-bar">
-          <div><i class="fa-solid fa-clock icon-wa-green"></i> Fast 24-hr Setup</div>
-          <div><i class="fa-solid fa-shield-halved" style="color:#4353ff;"></i> 100% Verified Quality</div>
-          <div><i class="fa-solid fa-phone" style="color:#ec4899;"></i> Dedicated Call Support (8923815818)</div>
+        <div class="enquiry-trust-bar" style="margin-top: 24px;">
+          <div><i class="fa-solid fa-envelope" style="color:#ea4335;"></i> Mail: digitaladway@gmail.com</div>
+          <div><i class="fa-solid fa-shield-halved" style="color:#4353ff;"></i> 100% Verified Response</div>
+          <div><i class="fa-solid fa-phone" style="color:#ec4899;"></i> Call: 8923815818</div>
         </div>
       </div>
     </div>
@@ -454,42 +468,38 @@
         <p class="section-subtitle">We are always available to discuss your next digital or animation advertising project.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px;">
-        <div class="bento-card" style="text-align: center;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <!-- Card 1: WhatsApp Support (Opens WhatsApp on click) -->
+        <div class="bento-card" style="text-align: center; cursor: pointer;" onclick="openWhatsAppSafe('https://api.whatsapp.com/send?phone=919760094558')">
           <i class="fa-brands fa-whatsapp icon-wa-green" style="font-size: 32px; margin-bottom: 12px;"></i>
           <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">WhatsApp Support</h3>
           <p style="font-size: 16px; font-weight: 900; color: var(--text-primary); margin-bottom: 14px;">+91-9760094558</p>
-          <a href="https://api.whatsapp.com/send?phone=919760094558" target="_blank" rel="noopener noreferrer" class="btn-wa-green" style="width: 100%; font-size: 13px;">
+          <a href="https://api.whatsapp.com/send?phone=919760094558" target="_blank" rel="noopener noreferrer" class="btn-wa-green" style="width: 100%; font-size: 13px;" onclick="event.stopPropagation()">
             <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
           </a>
         </div>
 
-        <div class="bento-card" style="text-align: center;">
+        <!-- Card 2: Direct Phone Line (Dials Phone Number on click) -->
+        <div class="bento-card" style="text-align: center; cursor: pointer;" onclick="window.location.href='tel:8923815818'">
           <i class="fa-solid fa-phone" style="font-size: 28px; color: var(--accent-blue); margin-bottom: 12px;"></i>
           <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">Direct Phone Line</h3>
           <p style="font-size: 16px; font-weight: 900; color: var(--text-primary); margin-bottom: 14px;">8923815818</p>
-          <a href="tel:8923815818" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px;">
+          <a href="tel:8923815818" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px;" onclick="event.stopPropagation()">
             <i class="fa-solid fa-phone"></i> Call 8923815818
           </a>
         </div>
 
-        <div class="bento-card" style="text-align: center;">
+        <!-- Card 3: For More Info Connect (Opens Email Popup Modal on click) -->
+        <div class="bento-card" style="text-align: center; cursor: pointer;" onclick="openEmailModal()">
           <i class="fa-solid fa-envelope" style="font-size: 28px; color: #ea4335; margin-bottom: 12px;"></i>
           <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">For More Info Connect</h3>
           <p style="font-size: 15px; font-weight: 800; color: var(--text-primary); margin-bottom: 14px; word-break: break-all;">digitaladway@gmail.com</p>
-          <a href="javascript:void(0)" onclick="openEmailModal()" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px; border-color: #fca5a5; color: #dc2626;">
+          <a href="javascript:void(0)" onclick="openEmailModal(); event.stopPropagation();" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px; border-color: #fca5a5; color: #dc2626;">
             <i class="fa-solid fa-envelope"></i> Send Email
           </a>
         </div>
 
-        <div class="bento-card" style="text-align: center;">
-          <i class="fa-solid fa-globe" style="font-size: 28px; color: var(--accent-blue); margin-bottom: 12px;"></i>
-          <h3 style="font-size: 17px; font-weight: 800; margin-bottom: 4px;">Official Domain</h3>
-          <p style="font-size: 16px; font-weight: 900; color: var(--text-primary); margin-bottom: 14px;">adwaydigital.org</p>
-          <a href="https://adwaydigital.org" class="btn-call-outline" style="width: 100%; justify-content: center; font-size: 13px;">
-            <i class="fa-solid fa-link"></i> Visit Website
-          </a>
-        </div>
+
       </div>
     </div>
   </section>
